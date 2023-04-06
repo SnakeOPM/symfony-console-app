@@ -17,8 +17,7 @@ class CountCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $output = $this -> find_files('./dirs', 'count');
-        print_r(substr($output[0], 1));
+        $output = $this -> sum_data_files();
         return Command::SUCCESS;
         
     }

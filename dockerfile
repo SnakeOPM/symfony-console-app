@@ -1,3 +1,3 @@
-FROM php:8.1.0-fpm-alpine
+FROM php:-fpm-alpine
 
-RUN apk add --nocache curl git
+RUN apk add --nocache composer

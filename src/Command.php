@@ -13,13 +13,18 @@ class Command extends SymfonyCommand
         parent::__construct();
     }
 
-    public function sum_data_files($path_array){
-        for ($counter = 0; $counter > max(array_keys($path_array)); $counter++){
-
+    public function sum_data_files(){
+      $result = array();
+      $path_array = $this->find_files('./dirs', 'count');
+        for ($counter = 0; $counter <= max(array_keys($path_array)); $counter++){
+          print_r($path_array[$counter]);
+          $result = array_merge($result, array(file_get_contents($path_array[$counter])));
         }
+        print_r($result);
+        return array_sum($result);
     }
 
-    public function find_files($dir, $pattern) {
+    private function find_files($dir, $pattern) {
         $files = glob($dir.'/'.$pattern);
         foreach (glob($dir.'/*', GLOB_ONLYDIR) as $sub_dir) {
           $files = array_merge($files, $this->find_files($sub_dir, $pattern));
