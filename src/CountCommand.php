@@ -15,7 +15,8 @@ class CountCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $output = $this -> sum_data_files();
+        $sum = $this -> sum_data_files();
+        $output -> write($sum);
         return Command::SUCCESS;
         
     }

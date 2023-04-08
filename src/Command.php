@@ -23,7 +23,7 @@ class Command extends SymfonyCommand
           //3м аргументом тут идёт пустой массив, его в начале принимает carry
           $result = array_merge($result, array_reduce($nums, function($carry, $item) { return array_merge($carry, $item); }, []));
         }
-        return print_r(array_sum($result)); // суммируем всё и выводим
+        return array_sum($result); // суммируем всё и выводим
     }
 
     private function find_files($dir, $pattern) {
